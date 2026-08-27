@@ -176,6 +176,38 @@ body{
   align-items:start;
 }
 
+/* ---------- Hilera de imágenes ---------- */
+.hilera{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1.25rem;
+  margin-top:3.5rem;
+}
+.hilera figure{margin:0;}
+.hilera .cuadro{
+  width:100%;
+  aspect-ratio:3 / 4;
+  overflow:hidden;
+  background:var(--muro-hondo);
+}
+.hilera img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .6s cubic-bezier(.22,.61,.36,1);
+}
+.hilera figure:hover img{transform:scale(1.03);}
+.hilera figcaption{
+  margin-top:0.85rem;
+  font-family:"Jost",system-ui,sans-serif;
+  font-weight:300;
+  font-size:0.75rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--hueso-tenue);
+  line-height:1.5;
+}
+
 /* ---------- Figura ---------- */
 .figura{margin:2.5rem 0 0;}
 .figura img{
@@ -330,6 +362,7 @@ a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
   .entrada{grid-template-columns:1fr;gap:2.5rem;align-items:start;}
   .doble{grid-template-columns:1fr;gap:2.5rem;}
   .servicio{grid-template-columns:1fr;gap:0.5rem;}
+  .hilera{grid-template-columns:1fr;gap:2rem;}
   .tarjeta{grid-template-columns:6.5rem minmax(0,1fr);gap:1.5rem;}
 }
 @media (max-width:640px){
@@ -387,11 +420,21 @@ a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
           <p>Oliva Art Projects trabaja con coleccionistas, particulares y profesionales del diseño que quieren incorporar obra de arte con criterio y sin improvisar.</p>
           <p>El trabajo puede empezar en cualquier punto: orientar una compra, gestionar la venta de una pieza por encargo, resolver dónde y cómo se guarda, o pensar un conjunto de obra para un espacio concreto.</p>
           <p>La especialidad es el arte cubano contemporáneo, con conocimiento directo de sus artistas y de sus referencias de precio.</p>
-          <figure class="figura">
-            <img src="img/interior-obra.jpg" alt="Pared de un interior doméstico con un conjunto de obra enmarcada" loading="lazy">
-            <figcaption><span class="cartela">Conjunto de obra en un interior doméstico</span></figcaption>
-          </figure>
         </div>
+      </div>
+      <div class="hilera">
+        <figure>
+          <div class="cuadro"><img src="img/feria-01.jpg" alt="Silvia E. Oliva Sainz junto a una obra de gran formato en una feria de arte" loading="lazy"></div>
+          <figcaption>Visita de feria</figcaption>
+        </figure>
+        <figure>
+          <div class="cuadro"><img src="img/feria-02.jpg" alt="Visitante observando una pintura iluminada en una sala" loading="lazy"></div>
+          <figcaption>Sala de exhibición</figcaption>
+        </figure>
+        <figure>
+          <div class="cuadro"><img src="img/feria-03.jpg" alt="Conjunto de obra sobre papel enmarcada en una pared de feria" loading="lazy"></div>
+          <figcaption>Montaje de conjunto</figcaption>
+        </figure>
       </div>
     </div>
   </section>
