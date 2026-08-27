@@ -56,11 +56,11 @@ body{
 .sala{padding:6.5rem 0 4rem;}
 .sala h1{
   font-family:"Bodoni Moda",Didot,serif;font-weight:400;
-  font-size:clamp(3rem,9.5vw,7.5rem);line-height:0.95;
-  letter-spacing:-0.02em;margin:0;max-width:14ch;
+  font-size:clamp(1.875rem,4.2vw,3.375rem);line-height:1.16;
+  letter-spacing:0.005em;margin:0;max-width:20ch;
 }
 .sala h1 em{font-style:italic;color:var(--oro);}
-.entrada{display:grid;grid-template-columns:minmax(0,1fr) 20rem;gap:4rem;align-items:end;}
+.entrada{display:grid;grid-template-columns:minmax(0,1fr) 18rem;gap:4rem;align-items:end;}
 .pie-entrada{border-top:1px solid var(--hilo);padding-top:1.25rem;}
 .pie-entrada p{margin:0.75rem 0 0;font-size:1rem;color:var(--hueso-tenue);line-height:1.55;}
 
@@ -68,90 +68,42 @@ body{
 .aparece:nth-child(2){animation-delay:.14s;}
 @keyframes subir{to{opacity:1;transform:none;}}
 
-/* ================= VISTA DE SALA ================= */
-.vista-sala{
+/* ================= IMÁGENES ================= */
+.banda{
+  margin:2.5rem 0 0;
   position:relative;
-  background:
-    linear-gradient(180deg, var(--muro-claro) 0%, var(--muro) 42%, var(--muro-hondo) 100%);
-  padding:5.5rem 0 0;
-  margin-top:2rem;
   overflow:hidden;
 }
-/* Luz cenital sobre el muro */
-.vista-sala::before{
+.banda img{
+  display:block;
+  width:100%;
+  height:auto;
+  filter:saturate(0.82) contrast(1.02);
+}
+/* Velo verde para integrar la foto con el muro del sitio */
+.banda::after{
   content:"";
   position:absolute;inset:0;
-  background:radial-gradient(120% 62% at 50% -8%, rgba(237,233,223,0.14), transparent 62%);
+  background:linear-gradient(180deg, rgba(43,58,51,0.30) 0%, rgba(43,58,51,0.05) 35%, rgba(43,58,51,0.55) 100%);
   pointer-events:none;
 }
-.muro-obras{
-  position:relative;
-  display:flex;
-  justify-content:center;
-  align-items:flex-end;
-  gap:clamp(1.75rem,5vw,5rem);
-  padding:0 2.5rem;
+.pie-imagen{
+  margin:1rem auto 0;
   max-width:var(--medida);
-  margin:0 auto;
-}
-.pieza{
-  position:relative;
-  flex:0 1 auto;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-/* Cada obra se alinea a una misma línea de centro */
-.pieza:nth-child(1){margin-bottom:0;}
-.pieza:nth-child(2){margin-bottom:2.5rem;}
-.pieza:nth-child(3){margin-bottom:0.75rem;}
-
-.marco{
-  position:relative;
-  background:var(--hueso);
-  padding:0.75rem;
-  box-shadow:
-    0 1px 0 rgba(255,255,255,0.18),
-    14px 20px 34px rgba(0,0,0,0.42);
-  transition:transform .45s cubic-bezier(.22,.61,.36,1), box-shadow .45s ease;
-}
-.marco:hover{
-  transform:translateY(-5px);
-  box-shadow:0 1px 0 rgba(255,255,255,0.2), 18px 28px 46px rgba(0,0,0,0.5);
-}
-.marco svg{display:block;width:100%;height:auto;}
-.p1 .marco{width:clamp(9rem,20vw,15.5rem);}
-.p2 .marco{width:clamp(11rem,25vw,19rem);}
-.p3 .marco{width:clamp(8rem,17vw,13rem);}
-
-/* Cartela de pared */
-.cartela-pared{
-  margin-top:1.5rem;
-  text-align:center;
-  max-width:15rem;
-}
-.cartela-pared .titulo-obra{
-  font-family:"Bodoni Moda",Didot,serif;font-style:italic;
-  font-size:1rem;display:block;margin-bottom:0.25rem;
-}
-.cartela-pared .datos-obra{
-  font-family:"Barlow Condensed",sans-serif;
-  font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--hueso-tenue);line-height:1.6;display:block;
+  padding:0 2.5rem;
 }
 
-/* Suelo de sala */
-.suelo{
-  margin-top:4.5rem;
-  height:7rem;
-  background:linear-gradient(180deg, var(--suelo) 0%, var(--muro-hondo) 100%);
-  border-top:1px solid rgba(237,233,223,0.14);
-  position:relative;
+.figura{margin:0;}
+.figura img{
+  display:block;
+  width:100%;
+  height:auto;
+  filter:saturate(0.8) contrast(1.02);
 }
-.suelo::after{
-  content:"";
-  position:absolute;inset:0;
-  background:radial-gradient(60% 90% at 50% 0%, rgba(237,233,223,0.07), transparent 70%);
+.figura figcaption{
+  margin-top:0.9rem;
+  padding-top:0.8rem;
+  border-top:1px solid var(--hilo);
 }
 
 /* ---------- Secciones ---------- */
@@ -160,8 +112,8 @@ body{
 .seccion-cabeza .regla{flex:1;height:1px;background:var(--hilo);}
 .enunciado{
   font-family:"Bodoni Moda",Didot,serif;font-weight:400;
-  font-size:clamp(1.75rem,4vw,2.875rem);line-height:1.22;
-  letter-spacing:-0.015em;max-width:20ch;margin:0;
+  font-size:clamp(1.375rem,2.4vw,1.875rem);line-height:1.32;
+  letter-spacing:0;max-width:24ch;margin:0;
 }
 .texto{max-width:38rem;color:var(--hueso-tenue);}
 .texto p{margin:0 0 1.25rem;}
@@ -201,21 +153,11 @@ a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
   .cabecera{position:static;}
   .sala{padding:3.5rem 0 2rem;}
   .seccion{padding:3.5rem 0;}
-  .vista-sala{padding-top:3.5rem;}
-  .muro-obras{
-    flex-direction:column;
-    align-items:center;
-    gap:3rem;
-    padding:0 1.5rem;
-  }
-  .pieza{margin-bottom:0 !important;}
-  .p1 .marco,.p2 .marco,.p3 .marco{width:min(72vw,17rem);}
-  .suelo{margin-top:3rem;height:4rem;}
+    .pie-imagen{padding:0 1.5rem;}
 }
 
 @media (prefers-reduced-motion:reduce){
   .aparece{animation:none;opacity:1;transform:none;}
-  .marco{transition:none;}
   html{scroll-behavior:auto;}
 }
 </style>
@@ -247,82 +189,13 @@ a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
     </div>
   </section>
 
-  <!-- ============ VISTA DE SALA ============
-       Las tres piezas son composiciones abstractas originales dibujadas en SVG.
-       Para sustituirlas por obra real: reemplaza el bloque <svg>...</svg>
-       por <img src="img/archivo.jpg" alt="..."> y edita la cartela.
-  ======================================== -->
-  <section class="vista-sala" id="sala">
-
-    <div class="muro-obras">
-
-      <!-- Pieza 1 -->
-      <div class="pieza p1">
-        <div class="marco">
-          <svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Composición abstracta en ocres y verdes con bandas verticales">
-            <rect width="300" height="380" fill="#E4DDCD"/>
-            <rect x="0" y="0" width="300" height="150" fill="#7C8B6E"/>
-            <rect x="34" y="42" width="90" height="290" fill="#C08A3A"/>
-            <rect x="150" y="96" width="58" height="236" fill="#2F4038"/>
-            <circle cx="228" cy="132" r="34" fill="#B24A32"/>
-            <rect x="34" y="232" width="232" height="6" fill="#1D251F"/>
-            <rect x="196" y="238" width="70" height="94" fill="#D6C9A8"/>
-            <path d="M34 42 L124 332" stroke="#1D251F" stroke-width="2" fill="none"/>
-          </svg>
-        </div>
-        <div class="cartela-pared">
-          <span class="titulo-obra">Composición en ocre</span>
-          <span class="datos-obra">Montaje de muestra<br>Acrílico sobre lienzo<br>120 × 150 cm</span>
-        </div>
-      </div>
-
-      <!-- Pieza 2 -->
-      <div class="pieza p2">
-        <div class="marco">
-          <svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Composición abstracta horizontal con bandas y arco">
-            <rect width="360" height="300" fill="#EFE7D6"/>
-            <path d="M0 300 L0 168 Q180 46 360 168 L360 300 Z" fill="#33574C"/>
-            <rect x="0" y="0" width="360" height="52" fill="#C7A24C"/>
-            <circle cx="252" cy="112" r="46" fill="#E4DDCD"/>
-            <circle cx="252" cy="112" r="46" fill="none" stroke="#1D251F" stroke-width="2"/>
-            <rect x="46" y="96" width="14" height="204" fill="#B24A32"/>
-            <rect x="78" y="130" width="14" height="170" fill="#1D251F"/>
-            <rect x="110" y="160" width="14" height="140" fill="#C7A24C"/>
-            <path d="M0 220 L360 196" stroke="#EFE7D6" stroke-width="1.5" fill="none" opacity="0.55"/>
-          </svg>
-        </div>
-        <div class="cartela-pared">
-          <span class="titulo-obra">Horizonte interrumpido</span>
-          <span class="datos-obra">Montaje de muestra<br>Óleo sobre lienzo<br>150 × 180 cm</span>
-        </div>
-      </div>
-
-      <!-- Pieza 3 -->
-      <div class="pieza p3">
-        <div class="marco">
-          <svg viewBox="0 0 260 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Composición abstracta vertical con retícula y forma orgánica">
-            <rect width="260" height="340" fill="#DCD3BE"/>
-            <rect x="0" y="0" width="260" height="340" fill="none"/>
-            <g stroke="#8C907F" stroke-width="1" opacity="0.7">
-              <path d="M0 68 H260 M0 136 H260 M0 204 H260 M0 272 H260"/>
-              <path d="M65 0 V340 M130 0 V340 M195 0 V340"/>
-            </g>
-            <path d="M130 42 C196 68 210 158 168 218 C136 264 84 258 62 214 C36 162 68 68 130 42 Z" fill="#2F4038"/>
-            <circle cx="130" cy="150" r="30" fill="#C7A24C"/>
-            <rect x="0" y="290" width="260" height="50" fill="#B24A32"/>
-            <rect x="0" y="284" width="260" height="4" fill="#1D251F"/>
-          </svg>
-        </div>
-        <div class="cartela-pared">
-          <span class="titulo-obra">Retícula con figura</span>
-          <span class="datos-obra">Montaje de muestra<br>Técnica mixta sobre papel<br>76 × 56 cm</span>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="suelo"></div>
+  <!-- ============ BANDA DE SALA ============ -->
+  <section class="banda" id="sala">
+    <img src="img/sala-exposicion.jpg" alt="Interior de una sala de exposición con obra colgada y luz de riel" loading="lazy">
   </section>
+  <div class="pie-imagen">
+    <span class="cartela">Sala de exposición</span>
+  </div>
 
   <section class="seccion">
     <div class="envoltura">
@@ -336,6 +209,10 @@ a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
           <p>Oliva Art Projects trabaja con coleccionistas, particulares y profesionales del diseño que quieren incorporar obra de arte con criterio y sin improvisar.</p>
           <p>El trabajo puede empezar en cualquier punto: orientar una compra, gestionar la venta de una pieza por encargo, resolver dónde y cómo se guarda, o pensar un conjunto de obra para un espacio concreto.</p>
           <p>La especialidad es el arte cubano contemporáneo, con conocimiento directo de sus artistas, sus circuitos y sus referencias de precio.</p>
+          <figure class="figura" style="margin-top:2.5rem;">
+            <img src="img/interior-obra.jpg" alt="Pared de un interior doméstico con un conjunto de obra enmarcada" loading="lazy">
+            <figcaption><span class="cartela">Conjunto de obra en un interior doméstico</span></figcaption>
+          </figure>
         </div>
       </div>
     </div>
