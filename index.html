@@ -53,46 +53,51 @@ body{
 .montaje{height:1px;background:var(--hilo);width:100%;}
 
 /* ---------- Entrada ---------- */
-.sala{padding:6.5rem 0 4rem;}
+.sala{
+  position:relative;
+  padding:9rem 0 4.5rem;
+  min-height:min(78vh,44rem);
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+}
+/* Imagen de fondo */
+.sala .fondo{
+  position:absolute;inset:0;
+  z-index:0;
+}
+.sala .fondo img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center 42%;
+  display:block;
+  filter:saturate(0.62) contrast(1.03) brightness(0.92);
+}
+/* Velo que integra la foto con el muro y sostiene el texto */
+.sala .fondo::after{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(34,48,42,0.55) 0%, rgba(34,48,42,0.30) 32%, rgba(30,42,37,0.88) 100%),
+    linear-gradient(90deg, rgba(30,42,37,0.72) 0%, rgba(30,42,37,0.18) 58%, rgba(30,42,37,0.34) 100%);
+}
+.sala .envoltura{position:relative;z-index:1;width:100%;}
 .sala h1{
   font-family:"Bodoni Moda",Didot,serif;font-weight:400;
   font-size:clamp(1.875rem,4.2vw,3.375rem);line-height:1.16;
   letter-spacing:0.005em;margin:0;max-width:20ch;
+  text-shadow:0 1px 24px rgba(20,28,24,0.55);
 }
 .sala h1 em{font-style:italic;color:var(--oro);}
 .entrada{display:grid;grid-template-columns:minmax(0,1fr) 18rem;gap:4rem;align-items:end;}
-.pie-entrada{border-top:1px solid var(--hilo);padding-top:1.25rem;}
-.pie-entrada p{margin:0.75rem 0 0;font-size:1rem;color:var(--hueso-tenue);line-height:1.55;}
+.pie-entrada{border-top:1px solid rgba(237,233,223,0.4);padding-top:1.25rem;}
+.pie-entrada p{margin:0.75rem 0 0;font-size:1rem;color:var(--hueso);line-height:1.55;text-shadow:0 1px 14px rgba(20,28,24,0.6);}
 
 .aparece{opacity:0;transform:translateY(14px);animation:subir .9s cubic-bezier(.22,.61,.36,1) forwards;}
 .aparece:nth-child(2){animation-delay:.14s;}
 @keyframes subir{to{opacity:1;transform:none;}}
 
 /* ================= IMÁGENES ================= */
-.banda{
-  margin:2.5rem 0 0;
-  position:relative;
-  overflow:hidden;
-}
-.banda img{
-  display:block;
-  width:100%;
-  height:auto;
-  filter:saturate(0.82) contrast(1.02);
-}
-/* Velo verde para integrar la foto con el muro del sitio */
-.banda::after{
-  content:"";
-  position:absolute;inset:0;
-  background:linear-gradient(180deg, rgba(43,58,51,0.30) 0%, rgba(43,58,51,0.05) 35%, rgba(43,58,51,0.55) 100%);
-  pointer-events:none;
-}
-.pie-imagen{
-  margin:1rem auto 0;
-  max-width:var(--medida);
-  padding:0 2.5rem;
-}
-
 .figura{margin:0;}
 .figura img{
   display:block;
@@ -151,9 +156,9 @@ a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
 @media (max-width:640px){
   .envoltura{padding:0 1.5rem;}
   .cabecera{position:static;}
-  .sala{padding:3.5rem 0 2rem;}
+  .sala{padding:5rem 0 2.5rem;min-height:min(72vh,32rem);}
+  .sala .fondo img{object-position:center 46%;}
   .seccion{padding:3.5rem 0;}
-    .pie-imagen{padding:0 1.5rem;}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -179,7 +184,10 @@ a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
 
 <main>
 
-  <section class="sala">
+  <section class="sala" id="sala">
+    <div class="fondo">
+      <img src="img/sala-exposicion.jpg" alt="Interior de una sala de exposición con obra colgada y luz de riel">
+    </div>
     <div class="envoltura entrada">
       <h1 class="aparece">Acompañamos la obra desde la elección hasta la <em>pared</em>.</h1>
       <div class="pie-entrada aparece">
@@ -188,14 +196,6 @@ a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
       </div>
     </div>
   </section>
-
-  <!-- ============ BANDA DE SALA ============ -->
-  <section class="banda" id="sala">
-    <img src="img/sala-exposicion.jpg" alt="Interior de una sala de exposición con obra colgada y luz de riel" loading="lazy">
-  </section>
-  <div class="pie-imagen">
-    <span class="cartela">Sala de exposición</span>
-  </div>
 
   <section class="seccion">
     <div class="envoltura">
