@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Oliva Art Projects LLC — Asesoría, custodia y documentación de arte</title>
+<title>Oliva Art Projects LLC — Consejería, custodia y curaduría de arte</title>
 <meta name="description" content="Oliva Art Projects LLC. Consejería de arte, venta por encargo, custodia, curaduría y diseño de interiores con obra. Especialidad en arte cubano contemporáneo. Florida, EE. UU.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,8 +12,6 @@
 :root{
   --muro:#2B3A33;
   --muro-hondo:#22302A;
-  --muro-claro:#33443C;
-  --suelo:#1B241F;
   --hueso:#EDE9DF;
   --hueso-tenue:#A8AEA6;
   --oro:#C39A4B;
@@ -36,74 +34,135 @@ body{
 
 .cartela{
   font-family:"Barlow Condensed",sans-serif;
-  font-size:0.8125rem;font-weight:500;letter-spacing:0.22em;
-  text-transform:uppercase;color:var(--hueso-tenue);display:block;
+  font-size:0.8125rem;
+  font-weight:500;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--hueso-tenue);
+  display:block;
 }
 
 /* ---------- Cabecera ---------- */
-.cabecera{position:sticky;top:0;z-index:10;background:var(--muro);padding:1.5rem 0;}
-.cabecera .envoltura{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+.cabecera{
+  position:absolute;
+  top:0;left:0;right:0;
+  z-index:20;
+  padding:1.5rem 0;
+}
+.cabecera .envoltura{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1.5rem;
+  flex-wrap:wrap;
+}
+.cabecera .cartela{color:var(--hueso);}
 .cabecera nav{display:flex;gap:1.75rem;}
 .cabecera nav a{
-  font-family:"Barlow Condensed",sans-serif;font-size:0.8125rem;
-  letter-spacing:0.18em;text-transform:uppercase;color:var(--hueso-tenue);
-  text-decoration:none;transition:color .2s ease;
+  font-family:"Barlow Condensed",sans-serif;
+  font-size:0.8125rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--hueso);
+  text-decoration:none;
+  transition:color .2s ease;
 }
-.cabecera nav a:hover,.cabecera nav a:focus-visible{color:var(--oro);}
-.montaje{height:1px;background:var(--hilo);width:100%;}
+.cabecera nav a:hover,
+.cabecera nav a:focus-visible{color:var(--oro);}
 
-/* ---------- Entrada ---------- */
-.sala{
+/* ---------- Portada ---------- */
+.portada{
   position:relative;
-  padding:9rem 0 4.5rem;
-  min-height:min(78vh,44rem);
+  min-height:min(80vh,46rem);
   display:flex;
   align-items:flex-end;
+  padding:9rem 0 4.5rem;
   overflow:hidden;
 }
-/* Imagen de fondo */
-.sala .fondo{
-  position:absolute;inset:0;
-  z-index:0;
-}
-.sala .fondo img{
+.portada .fondo{position:absolute;inset:0;z-index:0;}
+.portada .fondo img{
   width:100%;height:100%;
   object-fit:cover;
-  object-position:center 42%;
+  object-position:center 45%;
   display:block;
-  filter:saturate(0.62) contrast(1.03) brightness(0.92);
+  filter:saturate(0.6) contrast(1.03) brightness(0.9);
 }
-/* Velo que integra la foto con el muro y sostiene el texto */
-.sala .fondo::after{
+.portada .fondo::after{
   content:"";
   position:absolute;inset:0;
   background:
-    linear-gradient(180deg, rgba(34,48,42,0.55) 0%, rgba(34,48,42,0.30) 32%, rgba(30,42,37,0.88) 100%),
-    linear-gradient(90deg, rgba(30,42,37,0.72) 0%, rgba(30,42,37,0.18) 58%, rgba(30,42,37,0.34) 100%);
+    linear-gradient(180deg, rgba(30,42,37,0.62) 0%, rgba(30,42,37,0.26) 30%, rgba(30,42,37,0.92) 100%),
+    linear-gradient(90deg, rgba(30,42,37,0.7) 0%, rgba(30,42,37,0.15) 62%, rgba(30,42,37,0.3) 100%);
 }
-.sala .envoltura{position:relative;z-index:1;width:100%;}
-.sala h1{
-  font-family:"Bodoni Moda",Didot,serif;font-weight:400;
-  font-size:clamp(1.875rem,4.2vw,3.375rem);line-height:1.16;
-  letter-spacing:0.005em;margin:0;max-width:20ch;
-  text-shadow:0 1px 24px rgba(20,28,24,0.55);
+.portada .envoltura{position:relative;z-index:1;width:100%;}
+.entrada{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 18rem;
+  gap:4rem;
+  align-items:end;
 }
-.sala h1 em{font-style:italic;color:var(--oro);}
-.entrada{display:grid;grid-template-columns:minmax(0,1fr) 18rem;gap:4rem;align-items:end;}
-.pie-entrada{border-top:1px solid rgba(237,233,223,0.4);padding-top:1.25rem;}
-.pie-entrada p{margin:0.75rem 0 0;font-size:1rem;color:var(--hueso);line-height:1.55;text-shadow:0 1px 14px rgba(20,28,24,0.6);}
+.portada h1{
+  font-family:"Bodoni Moda",Didot,serif;
+  font-weight:400;
+  font-size:clamp(1.875rem,4.2vw,3.375rem);
+  line-height:1.16;
+  letter-spacing:0.005em;
+  margin:0;
+  max-width:20ch;
+  text-shadow:0 1px 26px rgba(20,28,24,0.6);
+}
+.portada h1 em{font-style:italic;color:var(--oro);}
+.pie-entrada{
+  border-top:1px solid rgba(237,233,223,0.42);
+  padding-top:1.25rem;
+}
+.pie-entrada .cartela{color:var(--hueso);}
+.pie-entrada p{
+  margin:0.75rem 0 0;
+  font-size:1rem;
+  color:var(--hueso);
+  line-height:1.55;
+  text-shadow:0 1px 16px rgba(20,28,24,0.65);
+}
 
 .aparece{opacity:0;transform:translateY(14px);animation:subir .9s cubic-bezier(.22,.61,.36,1) forwards;}
 .aparece:nth-child(2){animation-delay:.14s;}
 @keyframes subir{to{opacity:1;transform:none;}}
 
-/* ================= IMÁGENES ================= */
-.figura{margin:0;}
+/* ---------- Secciones ---------- */
+.seccion{padding:5.5rem 0;}
+.seccion-cabeza{
+  display:flex;
+  align-items:baseline;
+  gap:1.5rem;
+  margin-bottom:3rem;
+}
+.seccion-cabeza .regla{flex:1;height:1px;background:var(--hilo);}
+.enunciado{
+  font-family:"Bodoni Moda",Didot,serif;
+  font-weight:400;
+  font-size:clamp(1.375rem,2.4vw,1.875rem);
+  line-height:1.32;
+  margin:0;
+  max-width:24ch;
+}
+.texto{max-width:38rem;color:var(--hueso-tenue);}
+.texto p{margin:0 0 1.25rem;}
+.texto p:last-child{margin-bottom:0;}
+.doble{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:4rem;
+  align-items:start;
+}
+
+/* ---------- Figura ---------- */
+.figura{margin:2.5rem 0 0;}
 .figura img{
   display:block;
   width:100%;
   height:auto;
-  filter:saturate(0.8) contrast(1.02);
+  filter:saturate(0.78) contrast(1.02);
 }
 .figura figcaption{
   margin-top:0.9rem;
@@ -111,43 +170,75 @@ body{
   border-top:1px solid var(--hilo);
 }
 
-/* ---------- Secciones ---------- */
-.seccion{padding:5.5rem 0;}
-.seccion-cabeza{display:flex;align-items:baseline;gap:1.5rem;margin-bottom:3rem;}
-.seccion-cabeza .regla{flex:1;height:1px;background:var(--hilo);}
-.enunciado{
-  font-family:"Bodoni Moda",Didot,serif;font-weight:400;
-  font-size:clamp(1.375rem,2.4vw,1.875rem);line-height:1.32;
-  letter-spacing:0;max-width:24ch;margin:0;
-}
-.texto{max-width:38rem;color:var(--hueso-tenue);}
-.texto p{margin:0 0 1.25rem;}
-.texto p:last-child{margin-bottom:0;}
-.doble{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4rem;align-items:start;}
-
+/* ---------- Servicios ---------- */
 .servicios{list-style:none;margin:0;padding:0;}
-.servicio{display:grid;grid-template-columns:12rem minmax(0,1fr);gap:2.5rem;padding:2rem 0;border-top:1px solid var(--hilo);}
+.servicio{
+  display:grid;
+  grid-template-columns:14rem minmax(0,1fr);
+  gap:2.5rem;
+  padding:2rem 0;
+  border-top:1px solid var(--hilo);
+}
 .servicio:last-child{border-bottom:1px solid var(--hilo);}
-.servicio h3{font-family:"Bodoni Moda",Didot,serif;font-weight:400;font-size:1.5rem;margin:0;letter-spacing:-0.01em;}
+.servicio h3{
+  font-family:"Bodoni Moda",Didot,serif;
+  font-weight:400;
+  font-size:1.25rem;
+  margin:0;
+  line-height:1.3;
+}
 .servicio p{margin:0;color:var(--hueso-tenue);max-width:34rem;}
 
-.nota{border-left:2px solid var(--oro);padding:0 0 0 1.75rem;max-width:34rem;font-size:0.9375rem;color:var(--hueso-tenue);}
+/* ---------- Nota ---------- */
+.nota{
+  border-left:2px solid var(--oro);
+  padding-left:1.75rem;
+  max-width:34rem;
+  font-size:0.9375rem;
+  color:var(--hueso-tenue);
+}
 .nota p{margin:0;}
 
-.contacto-lineas{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:2.5rem;max-width:46rem;}
-.contacto-lineas .dato{font-family:"Bodoni Moda",Didot,serif;font-size:1.5rem;display:block;margin-top:0.6rem;}
-.contacto-lineas a{color:var(--hueso);text-decoration:none;border-bottom:1px solid var(--hilo);transition:color .2s ease,border-color .2s ease;}
-.contacto-lineas a:hover,.contacto-lineas a:focus-visible{color:var(--oro);border-color:var(--oro);}
+/* ---------- Contacto ---------- */
+.contacto-lineas{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));
+  gap:2.5rem;
+  max-width:46rem;
+}
+.contacto-lineas p{margin:0;}
+.contacto-lineas .dato{
+  font-family:"Bodoni Moda",Didot,serif;
+  font-size:1.25rem;
+  display:block;
+  margin-top:0.6rem;
+}
+.contacto-lineas a{
+  color:var(--hueso);
+  text-decoration:none;
+  border-bottom:1px solid var(--hilo);
+  transition:color .2s ease,border-color .2s ease;
+}
+.contacto-lineas a:hover,
+.contacto-lineas a:focus-visible{color:var(--oro);border-color:var(--oro);}
 
+/* ---------- Pie ---------- */
 .pie{padding:2.5rem 0 3.5rem;border-top:1px solid var(--hilo);}
 .pie .envoltura{
-  display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;
-  font-family:"Barlow Condensed",sans-serif;font-size:0.8125rem;
-  letter-spacing:0.16em;text-transform:uppercase;color:var(--hueso-tenue);
+  display:flex;
+  justify-content:space-between;
+  gap:1.5rem;
+  flex-wrap:wrap;
+  font-family:"Barlow Condensed",sans-serif;
+  font-size:0.8125rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--hueso-tenue);
 }
 
 a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
 
+/* ---------- Adaptación ---------- */
 @media (max-width:860px){
   .entrada{grid-template-columns:1fr;gap:2.5rem;align-items:start;}
   .doble{grid-template-columns:1fr;gap:2.5rem;}
@@ -155,10 +246,10 @@ a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
 }
 @media (max-width:640px){
   .envoltura{padding:0 1.5rem;}
-  .cabecera{position:static;}
-  .sala{padding:5rem 0 2.5rem;min-height:min(72vh,32rem);}
-  .sala .fondo img{object-position:center 46%;}
+  .portada{min-height:min(74vh,34rem);padding:6.5rem 0 2.5rem;}
+  .portada .fondo img{object-position:center 48%;}
   .seccion{padding:3.5rem 0;}
+  .cabecera nav{gap:1.1rem;}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -173,18 +264,16 @@ a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
   <div class="envoltura">
     <span class="cartela">Oliva Art Projects LLC</span>
     <nav>
-      <a href="#sala">Sala</a>
       <a href="#servicios">Servicios</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </div>
 </header>
 
-<div class="montaje"></div>
-
 <main>
 
-  <section class="sala" id="sala">
+  <!-- ===================== PORTADA ===================== -->
+  <section class="portada">
     <div class="fondo">
       <img src="img/sala-exposicion.jpg" alt="Interior de una sala de exposición con obra colgada y luz de riel">
     </div>
@@ -197,6 +286,7 @@ a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
     </div>
   </section>
 
+  <!-- ===================== PRESENTACIÓN ===================== -->
   <section class="seccion">
     <div class="envoltura">
       <div class="seccion-cabeza">
@@ -209,7 +299,7 @@ a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
           <p>Oliva Art Projects trabaja con coleccionistas, particulares y profesionales del diseño que quieren incorporar obra de arte con criterio y sin improvisar.</p>
           <p>El trabajo puede empezar en cualquier punto: orientar una compra, gestionar la venta de una pieza por encargo, resolver dónde y cómo se guarda, o pensar un conjunto de obra para un espacio concreto.</p>
           <p>La especialidad es el arte cubano contemporáneo, con conocimiento directo de sus artistas, sus circuitos y sus referencias de precio.</p>
-          <figure class="figura" style="margin-top:2.5rem;">
+          <figure class="figura">
             <img src="img/interior-obra.jpg" alt="Pared de un interior doméstico con un conjunto de obra enmarcada" loading="lazy">
             <figcaption><span class="cartela">Conjunto de obra en un interior doméstico</span></figcaption>
           </figure>
@@ -218,6 +308,7 @@ a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
     </div>
   </section>
 
+  <!-- ===================== SERVICIOS ===================== -->
   <section class="seccion" id="servicios">
     <div class="envoltura">
       <div class="seccion-cabeza">
@@ -253,6 +344,7 @@ a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
     </div>
   </section>
 
+  <!-- ===================== ALCANCE ===================== -->
   <section class="seccion">
     <div class="envoltura">
       <div class="seccion-cabeza">
@@ -265,6 +357,7 @@ a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
     </div>
   </section>
 
+  <!-- ===================== CONTACTO ===================== -->
   <section class="seccion" id="contacto">
     <div class="envoltura">
       <div class="seccion-cabeza">
@@ -272,11 +365,11 @@ a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
         <span class="regla"></span>
       </div>
       <div class="contacto-lineas">
-        <p style="margin:0;">
+        <p>
           <span class="cartela">Correo</span>
           <span class="dato"><a href="mailto:olivaartprojects@gmail.com">olivaartprojects@gmail.com</a></span>
         </p>
-        <p style="margin:0;">
+        <p>
           <span class="cartela">Teléfono</span>
           <span class="dato"><a href="tel:+13052405445">+1 305 240 5445</a></span>
         </p>
