@@ -1,1 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oliva Art Projects LLC — Asesoría, custodia y documentación de arte</title>
+<meta name="description" content="Oliva Art Projects LLC. Consejería de arte, venta por encargo, custodia, curaduría y diseño de interiores con obra. Especialidad en arte cubano contemporáneo. Florida, EE. UU.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Karla:wght@300;400;500&family=Barlow+Condensed:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --muro:#2B3A33;
+  --muro-hondo:#22302A;
+  --muro-claro:#33443C;
+  --suelo:#1B241F;
+  --hueso:#EDE9DF;
+  --hueso-tenue:#A8AEA6;
+  --oro:#C39A4B;
+  --hilo:rgba(237,233,223,0.22);
+  --medida:78rem;
+}
 
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--muro);
+  color:var(--hueso);
+  font-family:"Karla",system-ui,sans-serif;
+  font-weight:300;
+  font-size:17px;
+  line-height:1.65;
+}
+.envoltura{max-width:var(--medida);margin:0 auto;padding:0 2.5rem;}
+
+.cartela{
+  font-family:"Barlow Condensed",sans-serif;
+  font-size:0.8125rem;font-weight:500;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--hueso-tenue);display:block;
+}
+
+/* ---------- Cabecera ---------- */
+.cabecera{position:sticky;top:0;z-index:10;background:var(--muro);padding:1.5rem 0;}
+.cabecera .envoltura{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+.cabecera nav{display:flex;gap:1.75rem;}
+.cabecera nav a{
+  font-family:"Barlow Condensed",sans-serif;font-size:0.8125rem;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--hueso-tenue);
+  text-decoration:none;transition:color .2s ease;
+}
+.cabecera nav a:hover,.cabecera nav a:focus-visible{color:var(--oro);}
+.montaje{height:1px;background:var(--hilo);width:100%;}
+
+/* ---------- Entrada ---------- */
+.sala{padding:6.5rem 0 4rem;}
+.sala h1{
+  font-family:"Bodoni Moda",Didot,serif;font-weight:400;
+  font-size:clamp(3rem,9.5vw,7.5rem);line-height:0.95;
+  letter-spacing:-0.02em;margin:0;max-width:14ch;
+}
+.sala h1 em{font-style:italic;color:var(--oro);}
+.entrada{display:grid;grid-template-columns:minmax(0,1fr) 20rem;gap:4rem;align-items:end;}
+.pie-entrada{border-top:1px solid var(--hilo);padding-top:1.25rem;}
+.pie-entrada p{margin:0.75rem 0 0;font-size:1rem;color:var(--hueso-tenue);line-height:1.55;}
+
+.aparece{opacity:0;transform:translateY(14px);animation:subir .9s cubic-bezier(.22,.61,.36,1) forwards;}
+.aparece:nth-child(2){animation-delay:.14s;}
+@keyframes subir{to{opacity:1;transform:none;}}
+
+/* ================= VISTA DE SALA ================= */
+.vista-sala{
+  position:relative;
+  background:
+    linear-gradient(180deg, var(--muro-claro) 0%, var(--muro) 42%, var(--muro-hondo) 100%);
+  padding:5.5rem 0 0;
+  margin-top:2rem;
+  overflow:hidden;
+}
+/* Luz cenital sobre el muro */
+.vista-sala::before{
+  content:"";
+  position:absolute;inset:0;
+  background:radial-gradient(120% 62% at 50% -8%, rgba(237,233,223,0.14), transparent 62%);
+  pointer-events:none;
+}
+.muro-obras{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:clamp(1.75rem,5vw,5rem);
+  padding:0 2.5rem;
+  max-width:var(--medida);
+  margin:0 auto;
+}
+.pieza{
+  position:relative;
+  flex:0 1 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+/* Cada obra se alinea a una misma línea de centro */
+.pieza:nth-child(1){margin-bottom:0;}
+.pieza:nth-child(2){margin-bottom:2.5rem;}
+.pieza:nth-child(3){margin-bottom:0.75rem;}
+
+.marco{
+  position:relative;
+  background:var(--hueso);
+  padding:0.75rem;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.18),
+    14px 20px 34px rgba(0,0,0,0.42);
+  transition:transform .45s cubic-bezier(.22,.61,.36,1), box-shadow .45s ease;
+}
+.marco:hover{
+  transform:translateY(-5px);
+  box-shadow:0 1px 0 rgba(255,255,255,0.2), 18px 28px 46px rgba(0,0,0,0.5);
+}
+.marco svg{display:block;width:100%;height:auto;}
+.p1 .marco{width:clamp(9rem,20vw,15.5rem);}
+.p2 .marco{width:clamp(11rem,25vw,19rem);}
+.p3 .marco{width:clamp(8rem,17vw,13rem);}
+
+/* Cartela de pared */
+.cartela-pared{
+  margin-top:1.5rem;
+  text-align:center;
+  max-width:15rem;
+}
+.cartela-pared .titulo-obra{
+  font-family:"Bodoni Moda",Didot,serif;font-style:italic;
+  font-size:1rem;display:block;margin-bottom:0.25rem;
+}
+.cartela-pared .datos-obra{
+  font-family:"Barlow Condensed",sans-serif;
+  font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--hueso-tenue);line-height:1.6;display:block;
+}
+
+/* Suelo de sala */
+.suelo{
+  margin-top:4.5rem;
+  height:7rem;
+  background:linear-gradient(180deg, var(--suelo) 0%, var(--muro-hondo) 100%);
+  border-top:1px solid rgba(237,233,223,0.14);
+  position:relative;
+}
+.suelo::after{
+  content:"";
+  position:absolute;inset:0;
+  background:radial-gradient(60% 90% at 50% 0%, rgba(237,233,223,0.07), transparent 70%);
+}
+
+/* ---------- Secciones ---------- */
+.seccion{padding:5.5rem 0;}
+.seccion-cabeza{display:flex;align-items:baseline;gap:1.5rem;margin-bottom:3rem;}
+.seccion-cabeza .regla{flex:1;height:1px;background:var(--hilo);}
+.enunciado{
+  font-family:"Bodoni Moda",Didot,serif;font-weight:400;
+  font-size:clamp(1.75rem,4vw,2.875rem);line-height:1.22;
+  letter-spacing:-0.015em;max-width:20ch;margin:0;
+}
+.texto{max-width:38rem;color:var(--hueso-tenue);}
+.texto p{margin:0 0 1.25rem;}
+.texto p:last-child{margin-bottom:0;}
+.doble{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4rem;align-items:start;}
+
+.servicios{list-style:none;margin:0;padding:0;}
+.servicio{display:grid;grid-template-columns:12rem minmax(0,1fr);gap:2.5rem;padding:2rem 0;border-top:1px solid var(--hilo);}
+.servicio:last-child{border-bottom:1px solid var(--hilo);}
+.servicio h3{font-family:"Bodoni Moda",Didot,serif;font-weight:400;font-size:1.5rem;margin:0;letter-spacing:-0.01em;}
+.servicio p{margin:0;color:var(--hueso-tenue);max-width:34rem;}
+
+.nota{border-left:2px solid var(--oro);padding:0 0 0 1.75rem;max-width:34rem;font-size:0.9375rem;color:var(--hueso-tenue);}
+.nota p{margin:0;}
+
+.contacto-lineas{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:2.5rem;max-width:46rem;}
+.contacto-lineas .dato{font-family:"Bodoni Moda",Didot,serif;font-size:1.5rem;display:block;margin-top:0.6rem;}
+.contacto-lineas a{color:var(--hueso);text-decoration:none;border-bottom:1px solid var(--hilo);transition:color .2s ease,border-color .2s ease;}
+.contacto-lineas a:hover,.contacto-lineas a:focus-visible{color:var(--oro);border-color:var(--oro);}
+
+.pie{padding:2.5rem 0 3.5rem;border-top:1px solid var(--hilo);}
+.pie .envoltura{
+  display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;
+  font-family:"Barlow Condensed",sans-serif;font-size:0.8125rem;
+  letter-spacing:0.16em;text-transform:uppercase;color:var(--hueso-tenue);
+}
+
+a:focus-visible{outline:2px solid var(--oro);outline-offset:4px;}
+
+@media (max-width:860px){
+  .entrada{grid-template-columns:1fr;gap:2.5rem;align-items:start;}
+  .doble{grid-template-columns:1fr;gap:2.5rem;}
+  .servicio{grid-template-columns:1fr;gap:0.5rem;}
+}
+@media (max-width:640px){
+  .envoltura{padding:0 1.5rem;}
+  .cabecera{position:static;}
+  .sala{padding:3.5rem 0 2rem;}
+  .seccion{padding:3.5rem 0;}
+  .vista-sala{padding-top:3.5rem;}
+  .muro-obras{
+    flex-direction:column;
+    align-items:center;
+    gap:3rem;
+    padding:0 1.5rem;
+  }
+  .pieza{margin-bottom:0 !important;}
+  .p1 .marco,.p2 .marco,.p3 .marco{width:min(72vw,17rem);}
+  .suelo{margin-top:3rem;height:4rem;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .aparece{animation:none;opacity:1;transform:none;}
+  .marco{transition:none;}
+  html{scroll-behavior:auto;}
+}
+</style>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="envoltura">
+    <span class="cartela">Oliva Art Projects LLC</span>
+    <nav>
+      <a href="#sala">Sala</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<div class="montaje"></div>
+
+<main>
+
+  <section class="sala">
+    <div class="envoltura entrada">
+      <h1 class="aparece">Acompañamos la obra desde la elección hasta la <em>pared</em>.</h1>
+      <div class="pie-entrada aparece">
+        <span class="cartela">Ámbito</span>
+        <p>Consejería, venta por encargo, custodia, curaduría y diseño de interiores con obra de arte. Especialidad en arte cubano contemporáneo. Florida, Estados Unidos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VISTA DE SALA ============
+       Las tres piezas son composiciones abstractas originales dibujadas en SVG.
+       Para sustituirlas por obra real: reemplaza el bloque <svg>...</svg>
+       por <img src="img/archivo.jpg" alt="..."> y edita la cartela.
+  ======================================== -->
+  <section class="vista-sala" id="sala">
+
+    <div class="muro-obras">
+
+      <!-- Pieza 1 -->
+      <div class="pieza p1">
+        <div class="marco">
+          <svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Composición abstracta en ocres y verdes con bandas verticales">
+            <rect width="300" height="380" fill="#E4DDCD"/>
+            <rect x="0" y="0" width="300" height="150" fill="#7C8B6E"/>
+            <rect x="34" y="42" width="90" height="290" fill="#C08A3A"/>
+            <rect x="150" y="96" width="58" height="236" fill="#2F4038"/>
+            <circle cx="228" cy="132" r="34" fill="#B24A32"/>
+            <rect x="34" y="232" width="232" height="6" fill="#1D251F"/>
+            <rect x="196" y="238" width="70" height="94" fill="#D6C9A8"/>
+            <path d="M34 42 L124 332" stroke="#1D251F" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <div class="cartela-pared">
+          <span class="titulo-obra">Composición en ocre</span>
+          <span class="datos-obra">Montaje de muestra<br>Acrílico sobre lienzo<br>120 × 150 cm</span>
+        </div>
+      </div>
+
+      <!-- Pieza 2 -->
+      <div class="pieza p2">
+        <div class="marco">
+          <svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Composición abstracta horizontal con bandas y arco">
+            <rect width="360" height="300" fill="#EFE7D6"/>
+            <path d="M0 300 L0 168 Q180 46 360 168 L360 300 Z" fill="#33574C"/>
+            <rect x="0" y="0" width="360" height="52" fill="#C7A24C"/>
+            <circle cx="252" cy="112" r="46" fill="#E4DDCD"/>
+            <circle cx="252" cy="112" r="46" fill="none" stroke="#1D251F" stroke-width="2"/>
+            <rect x="46" y="96" width="14" height="204" fill="#B24A32"/>
+            <rect x="78" y="130" width="14" height="170" fill="#1D251F"/>
+            <rect x="110" y="160" width="14" height="140" fill="#C7A24C"/>
+            <path d="M0 220 L360 196" stroke="#EFE7D6" stroke-width="1.5" fill="none" opacity="0.55"/>
+          </svg>
+        </div>
+        <div class="cartela-pared">
+          <span class="titulo-obra">Horizonte interrumpido</span>
+          <span class="datos-obra">Montaje de muestra<br>Óleo sobre lienzo<br>150 × 180 cm</span>
+        </div>
+      </div>
+
+      <!-- Pieza 3 -->
+      <div class="pieza p3">
+        <div class="marco">
+          <svg viewBox="0 0 260 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Composición abstracta vertical con retícula y forma orgánica">
+            <rect width="260" height="340" fill="#DCD3BE"/>
+            <rect x="0" y="0" width="260" height="340" fill="none"/>
+            <g stroke="#8C907F" stroke-width="1" opacity="0.7">
+              <path d="M0 68 H260 M0 136 H260 M0 204 H260 M0 272 H260"/>
+              <path d="M65 0 V340 M130 0 V340 M195 0 V340"/>
+            </g>
+            <path d="M130 42 C196 68 210 158 168 218 C136 264 84 258 62 214 C36 162 68 68 130 42 Z" fill="#2F4038"/>
+            <circle cx="130" cy="150" r="30" fill="#C7A24C"/>
+            <rect x="0" y="290" width="260" height="50" fill="#B24A32"/>
+            <rect x="0" y="284" width="260" height="4" fill="#1D251F"/>
+          </svg>
+        </div>
+        <div class="cartela-pared">
+          <span class="titulo-obra">Retícula con figura</span>
+          <span class="datos-obra">Montaje de muestra<br>Técnica mixta sobre papel<br>76 × 56 cm</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="suelo"></div>
+  </section>
+
+  <section class="seccion">
+    <div class="envoltura">
+      <div class="seccion-cabeza">
+        <span class="cartela">Presentación</span>
+        <span class="regla"></span>
+      </div>
+      <div class="doble">
+        <h2 class="enunciado">Elegir bien una obra, cuidarla y colocarla donde funcione.</h2>
+        <div class="texto">
+          <p>Oliva Art Projects trabaja con coleccionistas, particulares y profesionales del diseño que quieren incorporar obra de arte con criterio y sin improvisar.</p>
+          <p>El trabajo puede empezar en cualquier punto: orientar una compra, gestionar la venta de una pieza por encargo, resolver dónde y cómo se guarda, o pensar un conjunto de obra para un espacio concreto.</p>
+          <p>La especialidad es el arte cubano contemporáneo, con conocimiento directo de sus artistas, sus circuitos y sus referencias de precio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="servicios">
+    <div class="envoltura">
+      <div class="seccion-cabeza">
+        <span class="cartela">Servicios</span>
+        <span class="regla"></span>
+      </div>
+      <ul class="servicios">
+        <li class="servicio">
+          <h3>Consejería</h3>
+          <p>Orientación para comprar o vender obra: qué conviene según el interés y el presupuesto, y qué se puede esperar en cuanto a precio.</p>
+        </li>
+        <li class="servicio">
+          <h3>Arte cubano contemporáneo</h3>
+          <p>Consejería especializada en artistas cubanos actuales: quién es quién, cómo se mueve su obra y qué referencias de precio existen.</p>
+        </li>
+        <li class="servicio">
+          <h3>Venta por encargo</h3>
+          <p>Gestión de la venta de piezas concretas por cuenta del propietario: preparación del material, búsqueda de comprador y acompañamiento de la operación.</p>
+        </li>
+        <li class="servicio">
+          <h3>Custodia</h3>
+          <p>Guarda de obra en condiciones adecuadas, con coordinación de embalaje y traslado cuando hace falta.</p>
+        </li>
+        <li class="servicio">
+          <h3>Curaduría</h3>
+          <p>Selección y articulación de conjuntos de obra para una exposición, un catálogo o una colección en formación.</p>
+        </li>
+        <li class="servicio">
+          <h3>Diseño de interiores con obra de arte</h3>
+          <p>Elección y colocación de obra en viviendas y espacios profesionales: qué piezas dialogan con el espacio, dónde van y cómo se montan.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="envoltura">
+      <div class="seccion-cabeza">
+        <span class="cartela">Alcance</span>
+        <span class="regla"></span>
+      </div>
+      <div class="nota">
+        <p>Los servicios descritos se prestan a terceros. Las colecciones privadas de sus miembros constituyen patrimonio independiente y no forman parte del inventario ni de la oferta comercial de la compañía.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="contacto">
+    <div class="envoltura">
+      <div class="seccion-cabeza">
+        <span class="cartela">Contacto</span>
+        <span class="regla"></span>
+      </div>
+      <div class="contacto-lineas">
+        <p style="margin:0;">
+          <span class="cartela">Correo</span>
+          <span class="dato"><a href="mailto:olivaartprojects@gmail.com">olivaartprojects@gmail.com</a></span>
+        </p>
+        <p style="margin:0;">
+          <span class="cartela">Teléfono</span>
+          <span class="dato"><a href="tel:+13052405445">+1 305 240 5445</a></span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="envoltura">
+    <span>Oliva Art Projects LLC · Florida, EE. UU.</span>
+    <span>Consultas por cita previa</span>
+  </div>
+</footer>
+
+</body>
+</html>
